@@ -14,9 +14,9 @@ const GET_ALL_QUESTIONS = async (req, res) => {
 };
 
 
-const GET_QUESTION_BY_USER_ID = async (req, res) => {  
+const GET_ALL_QUESTIONS_BY_USER_ID = async (req, res) => {  
   try{
-    const question = await QuestionModel.findById(req.params.id);
+    const question = await QuestionModel.find({userId: req.body.userId});
     return res
       .status(200)
       .json({question: question});
@@ -33,6 +33,7 @@ const ADD_QUESTION = async (req, res) => {
     const question = new QuestionModel({
             questionText: req.body.questionText,
             date: req.body.date,
+            userId: req.body.userId,
         });
         const response = await question.save();
     return res
@@ -62,4 +63,4 @@ const DELETE_QUESTION_BY_ID = async (req, res) => {
 
 
 
-  export { GET_ALL_QUESTIONS, ADD_QUESTION, GET_QUESTION_BY_USER_ID, DELETE_QUESTION_BY_ID}
+  export { GET_ALL_QUESTIONS, ADD_QUESTION, GET_ALL_QUESTIONS_BY_USER_ID, DELETE_QUESTION_BY_ID}
