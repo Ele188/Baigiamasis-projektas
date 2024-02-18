@@ -1,6 +1,8 @@
 import express from 'express';
 import mongoose from "mongoose";
+import "dotenv/config";
 import questionRouter from "./src/routes/question.js";
+import userRouter from "./src/routes/user.js";
 
 const app = express();
 
@@ -8,14 +10,14 @@ const app = express();
 app.use(express.json());
 
 mongoose
-.connect("mongodb+srv://elenajankauskaite5:elenajankauskaite5@elena555.ysncalf.mongodb.net/questions-api"
-)
+.connect(process.env.MONGO_CONNECTION)
 .then(() => console.log("Conected to DB!"))
 .catch((err) => {
     console.log(err);
 });
 
 app.use(questionRouter);
+app.use(userRouter);
 
 
-app.listen(3000)
+app.listen(process.env.PORT)
