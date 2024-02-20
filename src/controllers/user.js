@@ -52,7 +52,7 @@ const LOGIN = async (req, res) => {
      expiresIn: "96h"
     });
 
- return res.status(201).json({ jwt: token });
+ return res.status(200).json({ jwt: token });
     } catch (err){
     console.log(err);
     return res.status(500).json({message: "Soemthing went wrong"});

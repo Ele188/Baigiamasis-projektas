@@ -5,7 +5,7 @@ import auth from "../middleware/auth.js"
 
 const router = express.Router();
 
-router.get('/questions', auth, GET_ALL_QUESTIONS);
+router.get('/questions', GET_ALL_QUESTIONS);
   
   router.get('/questions/:userId', auth, GET_ALL_QUESTIONS_BY_USER_ID);
   
