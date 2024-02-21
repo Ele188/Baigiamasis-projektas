@@ -2,6 +2,7 @@ import bcrypt from "bcryptjs";
 import UserModel from "../models/user.js";
 import jwt from "jsonwebtoken"
 
+// Veikianti // 
 const SIGN_UP = async (req, res) => {
 
   const salt = bcrypt.genSaltSync(10);
@@ -23,6 +24,8 @@ const SIGN_UP = async (req, res) => {
   }
 };
 
+
+// Veikianti // 
 const LOGIN = async (req, res) => {
  try{
    console.log(req.body.password)

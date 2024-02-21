@@ -1,6 +1,6 @@
 import QuestionModel from "../models/question.js";
 
-
+// Veikianti // 
 const GET_ALL_QUESTIONS = async (req, res) => {
   try{
     const questions = await QuestionModel.find();
@@ -13,7 +13,7 @@ const GET_ALL_QUESTIONS = async (req, res) => {
   }
 };
 
-
+// Veikianti tik Backend'e// 
 const GET_ALL_QUESTIONS_BY_USER_ID = async (req, res) => {  
   try{
     const question = await QuestionModel.find({userId: req.body.userId});
@@ -26,31 +26,18 @@ const GET_ALL_QUESTIONS_BY_USER_ID = async (req, res) => {
   }
 };
 
+// Neveikianti// 
 const GET_ALL_LIKED_QUESTIONS_BY_USER_ID = async (req, res) => {  
-  try{
-    const question = await QuestionModel.find({userId: req.body.userId});
-    return res
-      .status(200)
-      .json({question: question});
-  } catch (err){
-  console.log(err);
-  return res.status(500).json({message: "Soemthing went wrong"});
-  }
+  
 };
 
+
+// Neveikianti// 
 const GET_ALL_DISLAKED_QUESTIONS_BY_USER_ID = async (req, res) => {  
-  try{
-    const question = await QuestionModel.find({userId: req.body.userId});
-    return res
-      .status(200)
-      .json({question: question});
-  } catch (err){
-  console.log(err);
-  return res.status(500).json({message: "Soemthing went wrong"});
-  }
+  
 };
 
-
+// Veikianti //
 const ADD_QUESTION = async (req, res) => {
   try{
     const question = new QuestionModel({
@@ -69,6 +56,7 @@ const ADD_QUESTION = async (req, res) => {
 };
 
 
+// Veikianti tik Backend'e// 
 const DELETE_QUESTION_BY_ID = async (req, res) => {  
   try{  
   const question = await QuestionModel.findByIdAndDelete(req.params.id);
